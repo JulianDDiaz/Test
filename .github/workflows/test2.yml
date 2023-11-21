@@ -13,8 +13,8 @@ jobs:
         run: git add test_file.txt
       - name: Commit
         run: |
-        git config --global user.name 'Julian'
-        git config --global user.email 'juddiazci@unal.edu.co'
-        git commit -m "test commit"
+          git config --global user.name 'Julian'
+          git config --global user.email 'juddiazci@unal.edu.co'
+          git commit -m "test commit"
       - name: Push
         run: git push      
