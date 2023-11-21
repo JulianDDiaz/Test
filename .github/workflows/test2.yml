@@ -13,8 +13,8 @@ jobs:
         run: git add test_file.txt
       - name: Commit
         run: |
-          git config --global user.name 'Julian'
-          git config --global user.email 'juddiazci@unal.edu.co'
+          git config --global user.name 'Your Name'
+          git config --global user.email 'your-username@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}
           git commit -m "test commit"
       - name: Push
