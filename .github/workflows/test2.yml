@@ -12,7 +12,9 @@ jobs:
       - name: Execute
         run: node test.js
       - name: Save
-        run: git add test_file.txt
+        run: |
+          git add test_file.txt
+          git add test_sitemap.xml
       - name: Commit
         run: |
           git config --global user.name 'Your Name'
