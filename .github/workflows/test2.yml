@@ -1,4 +1,4 @@
-on: [push]
+on: []
 
 jobs:
   run_script:
@@ -9,3 +9,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Execute
         run: node test.js
+      - name: Save
+        run: git add test_file.txt
+      - name: Commit
+        run: git commit -m "test commit"
+      - name: Push
+        run: git push      
