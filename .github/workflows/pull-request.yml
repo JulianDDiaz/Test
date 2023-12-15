@@ -11,7 +11,7 @@ jobs:
         run: npm install --save sitemap
       - name: Delete branch if exists
         run: |
-          if git show-ref --verify --quiet refs/heads/sitemap; then
+          if git ls-remote --heads origin refs/heads/sitemap | wc -l; then
             git push -d origin sitemap
           fi
       - name: Execute
