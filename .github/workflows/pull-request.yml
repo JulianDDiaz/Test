@@ -26,6 +26,6 @@ jobs:
       - name: Pull request
         run: |
           gh pr create -B master -H sitemap --title 'Merge sitemap' --body 'Created by Github action'
-          env:
-            GH_TOKEN: ${{ github.token }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
