@@ -13,6 +13,7 @@ jobs:
         run: |
           if [git show-ref --verify --quiet refs/heads/sitemap]; then
             git push origin --delete test
+          fi
       - name: Execute
         run: node test.js
       - name: Save
