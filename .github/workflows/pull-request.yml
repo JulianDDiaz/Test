@@ -21,10 +21,11 @@ jobs:
           git config --global user.name 'Sitemap_bot'
           git config --global user.email 'sitemap-bot@inversionesbloom.com'
           git commit -m "test commit"
+      - name: Push
+        run: git push
       - name: Pull request
         run: |
           gh pr create -B master -H sitemap --title 'Merge sitemap' --body 'Created by Github action'
           env:
+            GH_TOKEN: ${{ github.token }}
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push
-        run: git push      
