@@ -1,0 +1,30 @@
+on: [workflow_dispatch ]
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+    name: create_and_save
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install packages
+        run: npm install --save sitemap
+      - name: Execute
+        run: node test.js
+      - name: Save
+        run: |
+          git checkout -b sitemap
+          git add test_file.txt
+          git add test_sitemap.xml
+      - name: Commit
+        run: |
+          git config --global user.name 'Sitemap_bot'
+          git config --global user.email 'sitemap-bot@inversionesbloom.com'
+          git commit -m "test commit"
+      - name: Pull request
+        run: |
+          gh pr create -B master -H sitemap --title 'Merge sitemap' --body 'Created by Github action'
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push
+        run: git push      
