@@ -12,7 +12,7 @@ jobs:
       - name: Delete branch if exists
         run: |
           if git show-ref --verify --quiet refs/heads/sitemap; then
-            git push origin --delete test
+            git push -d origin sitemap
           fi
       - name: Execute
         run: node test.js
