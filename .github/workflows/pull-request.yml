@@ -22,7 +22,7 @@ jobs:
           git config --global user.email 'sitemap-bot@inversionesbloom.com'
           git commit -m "test commit"
       - name: Push
-        run: git push
+        run: git push --set-upstream origin sitemap
       - name: Pull request
         run: |
           gh pr create -B master -H sitemap --title 'Merge sitemap' --body 'Created by Github action'
